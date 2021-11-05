@@ -1,14 +1,15 @@
 let degré = 0
 basic.forever(function () {
-    degré = input.compassHeading()
-})
-basic.forever(function () {
-    if (135 < degré) {
+    if (degré < 135) {
         basic.showString("est")
-    }
-})
-basic.forever(function () {
-    if (degré < 45) {
+    } else if (degré < 315) {
+        basic.showString("west")
+    } else if (degré < 45) {
         basic.showString("nord")
+    } else if (degré < 225) {
+        basic.showString("sud")
+    } else {
+        basic.showString("erreur")
     }
+    degré = input.compassHeading()
 })
